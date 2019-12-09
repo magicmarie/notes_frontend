@@ -7,9 +7,9 @@ import './App.css';
 import { history } from '../src/helpers/history';
 import { PrivateRoute } from '../src/components/privateRoute';
 import { HomePage } from '../src/components/homePage';
-import { LoginContainer } from '../src/containers/loginContainer';
+import  loginContainer from '../src/containers/loginContainer';
 import signupContainer from './containers/signupContainer';
-
+import { ToastContainer } from 'react-toastify';
 
 
 class App extends Component {
@@ -18,13 +18,14 @@ class App extends Component {
     return(
         <Provider store={store}>
            <div className="jumbotron">
+                <ToastContainer/>
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         <Router history={history}>
                             <div>
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/signup" component={signupContainer} />
-                                <Route path="/login" component={LoginContainer} />
+                                <Route path="/login" component={loginContainer} />
                             </div>
                         </Router>
                     </div>

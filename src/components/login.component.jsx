@@ -1,30 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Form } from "../helpers/formhelper";
-import { Link,Redirect } from 'react-router-dom'
+import { Link,Redirect } from 'react-router-dom';
+import { toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export class signupComponent extends Component {
+export class loginComponent extends Component {
   state ={
     email:'',
     password:'',
-    password_confirmation:'',
-    username:'',
     token:'',
   }
 
    componentDidUpdate = (prevProps, prevState) => {
-     console.log(this.props)
-     if (this.props.signUp.success){
-       this.props.history.push('/login')
-     }
+       const {logIn} =  this.props
+    if (logIn.success){
+        toast("Succesfully logged in");
+        localStorage.setItem("token",logIn.token)
+      }
    }
    
 
   handleLogin = (e) => {
     e.preventDefault();
-    const {signupUser} = this.props
-    if (this.state.password == this.state.password_confirmation){
-      signupUser(this.state)
-    }
+    const {loginUser} = this.props
+    loginUser(this.state)
+    
   };
 
 
@@ -36,11 +36,6 @@ export class signupComponent extends Component {
   render() {
     const formFields = [
       {
-        type: "text",
-        name: "username",
-        label: "Username"
-        },
-      {
         type: "email",
         name: "email",
         label: "Email"
@@ -50,11 +45,6 @@ export class signupComponent extends Component {
         name: "password",
         label: "Password"
         },
-        {
-          type: "password",
-          name: "password_confirmation",
-          label: "Confirm Password"
-        }
       ]
     return (
       <div>
@@ -66,15 +56,15 @@ export class signupComponent extends Component {
                     <Form formFields={formFields} onChange={this.onChange} />
                     <div>
                     <button type="submit" className="btn btn-primary btn-block">
-                        Sign Up
+                       Log In
                     </button>
                     </div>
                     <p />
                     <p className="text-center">
                     Do not have an account yet?
-                    <Link href="/login" to="login">
+                    <Link href="/signup" to="signup">
                         {" "}
-                        Login
+                        Sign Up
                     </Link>
                     </p>
                 </form>
@@ -83,4 +73,4 @@ export class signupComponent extends Component {
   }
 }
 
-export default signupComponent
+export default loginComponent
