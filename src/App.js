@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { Provider, connect } from 'react-redux';
-import store  from './store/store';
 
+import { ToastContainer } from 'react-toastify';
+import store  from './store/store';
 import './App.css';
 import { history } from '../src/helpers/history';
 import { PrivateRoute } from '../src/components/privateRoute';
 import { HomePage } from '../src/components/homePage';
-import  loginContainer from '../src/containers/loginContainer';
-import signupContainer from './containers/signupContainer';
-import { ToastContainer } from 'react-toastify';
+import loginContainer from '../src/containers/loginContainer';
+import signupContainer from '../src/containers/signupContainer';
 
 
 class App extends Component {

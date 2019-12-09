@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { Form } from "../helpers/formhelper";
-import { Link,Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
 import { toast } from 'react-toastify';
+
+import { Form } from "../helpers/helper";
+import { Link } from 'react-router-dom'
 
 export class signupComponent extends Component {
   state ={
     email:'',
     password:'',
     password_confirmation:'',
-    username:'',
-    token:'',
+    username:''
   }
 
    componentDidUpdate = (prevProps, prevState) => {
@@ -18,19 +18,16 @@ export class signupComponent extends Component {
        this.props.history.push('/login')
      }
    }
-   
 
   handleLogin = (e) => {
     e.preventDefault();
     const {signupUser} = this.props
-    if (this.state.password == this.state.password_confirmation){
+    if (this.state.password === this.state.password_confirmation){
 
       signupUser(this.state)
     }
   };
 
-
-  
   onChange = (e) =>{
     this.setState({[e.target.name]: e.target.value});
   }
@@ -60,7 +57,6 @@ export class signupComponent extends Component {
       ]
     return (
       <div>
-        
         <form onSubmit={this.handleLogin}>
                     <h2 className="text-center form-signin-heading">
                     Log in to your account
@@ -85,4 +81,4 @@ export class signupComponent extends Component {
   }
 }
 
-export default signupComponent
+export default signupComponent;

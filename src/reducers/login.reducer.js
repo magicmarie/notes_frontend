@@ -1,5 +1,5 @@
+import initialState from './initialState';
 import { userConstants } from '../constants/user.constants';
-import initialState from './initialState'
 
 const { LOGIN } = userConstants
 
@@ -33,4 +33,4 @@ export const logIn = (state = initialState.logIn, action) => {
         default:
             return state
     }
-}
+} 

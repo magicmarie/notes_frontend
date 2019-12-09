@@ -29,3 +29,4 @@ export const signUp = (state = initialState.signUp, action) => {
             return state
     }
 }
+
