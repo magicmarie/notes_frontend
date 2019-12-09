@@ -1,51 +1,35 @@
-import axiosInstance from "../components/apicalls";
+import api from "./api";
 import { userConstants } from "../constants/user.constants";
 
-export const userActions ={
-  signupUser,
-  loginUser,
-  logout
-}
-function signupUser(data) {
-  return (dispatch) => {
-    return axiosInstance
-    .post("/auth/signup", {data})
-    .then(response => {
-      console.log(response);
-      dispatch({
-        type: userConstants.SIGNUP_SUCCESS,
-        payload: response.data
-      });
-    })
-    .catch(error => {
-      dispatch({
-        type: userConstants.SIGNUP_FAILURE, error
-      })
-    });
-  };
-}
-  
+// export const userActions ={
+//   signupUser,
+//   loginUser,
+//   logout
+// }
+const {SIGNUP, LOGIN} = userConstants
+export const  signupUser = data=>({
+      type: SIGNUP,
+      payload: api({
+        method: "POST",
+        data: data,
+        url: '/users'
+      }
+      )
+  });
 
-function loginUser(data) {
-  return (dispatch) => {
-    return axiosInstance
-      .post("/auth/login", {data})
-      .then(response => {
-        console.log(response);
-        dispatch({
-          type: userConstants.LOGIN_SUCCESS,
-          payload: response.data
-        });
-      })
-      .catch(error => {
-        dispatch({
-          type: userConstants.LOGIN_FAILURE, error
-        })
-      });
-  };
-}
+export const  loginUser= data=>({
+      type: LOGIN,
+      payload: api({
+        method: "POST",
+        data: data ,
+        url: '/auth/login'
+      }
+      )
+  });
 
-function logout() {
-  localStorage.removeItem('token');
-  return { type: userConstants.LOGOUT };
-}
+
+// function logout() {
+//   localStorage.removeItem('token');
+//   return { type: userConstants.LOGOUT };
+// }
+

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Login from '../components/loginPage';
-import { userActions } from '../actions/user.action';
+import { loginUser } from '../actions/user.action';
 
 
 class LoginContainer extends React.Component {
@@ -14,17 +14,23 @@ class LoginContainer extends React.Component {
         };
     }
 
+    componentDidMount(){
+        console.log(this.props)
+        this.props.loginUser()
+    }
+
     onChange = e => {
+        console.log('name')
         const { name, value } = e.target;
         this.setState({ [name]: value });
     }
 
     handleLogin = e => {
         e.preventDefault();
-        userActions.loginUser(this.state)
+        this.props.loginUser(this.state)
         .then(response => {
             localStorage.setItem("token", response.data.auth_token);
-            this.props.history.push('/');
+            // this.props.history.push('/');
         })
     }
 
@@ -48,5 +54,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedLoginContainer = connect(mapStateToProps)(LoginContainer);
+const connectedLoginContainer = connect(mapStateToProps, {loginUser})(LoginContainer);
 export { connectedLoginContainer as LoginContainer }; 

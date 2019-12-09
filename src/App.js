@@ -8,7 +8,7 @@ import { history } from '../src/helpers/history';
 import { PrivateRoute } from '../src/components/privateRoute';
 import { HomePage } from '../src/components/homePage';
 import { LoginContainer } from '../src/containers/loginContainer';
-import { SignupContainer } from '../src/containers/signupContainer';
+import signupContainer from './containers/signupContainer';
 
 
 
@@ -23,7 +23,7 @@ class App extends Component {
                         <Router history={history}>
                             <div>
                                 <PrivateRoute exact path="/" component={HomePage} />
-                                <Route path="/signup" component={SignupContainer} />
+                                <Route path="/signup" component={signupContainer} />
                                 <Route path="/login" component={LoginContainer} />
                             </div>
                         </Router>
