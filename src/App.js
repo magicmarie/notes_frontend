@@ -1,21 +1,47 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import { Router, Route } from 'react-router-dom';
+import { Provider, connect } from 'react-redux';
+
+import { ToastContainer } from 'react-toastify';
 import store  from './store/store';
-
 import './App.css';
+import { history } from '../src/helpers/history';
+import { PrivateRoute } from '../src/components/privateRoute';
+import { HomePage } from '../src/components/homePage';
+import loginContainer from '../src/containers/loginContainer';
+import signupContainer from '../src/containers/signupContainer';
 
 
-export class App extends Component {
+class App extends Component {
   render() {
+
     return(
         <Provider store={store}>
-            <div>
-                <h2>Welcome to Notes App </h2>
+           <div className="jumbotron">
+                <ToastContainer/>
+                <div className="container">
+                    <div className="col-sm-8 col-sm-offset-2">
+                        <Router history={history}>
+                            <div>
+                                <PrivateRoute exact path="/" component={HomePage} />
+                                <Route path="/signup" component={signupContainer} />
+                                <Route path="/login" component={loginContainer} />
+                            </div>
+                        </Router>
+                    </div>
+                </div>
             </div>
         </Provider>
     );
+    }
 }
+
+function mapStateToProps(state) {
+    return {
+    };
 }
-  export default App;
+
+const connectedApp = connect(mapStateToProps)(App);
+export { connectedApp as App };
 
   
