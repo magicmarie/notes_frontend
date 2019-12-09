@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { Provider, connect } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
 
+import { ToastContainer } from 'react-toastify';
 import store  from './store/store';
 import './App.css';
 import { history } from '../src/helpers/history';
@@ -18,7 +18,7 @@ class App extends Component {
     return(
         <Provider store={store}>
            <div className="jumbotron">
-           <ToastContainer/>
+                <ToastContainer/>
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         <Router history={history}>

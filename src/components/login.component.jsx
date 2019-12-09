@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Form } from '../helpers/helper';
-import { Link } from 'react-router-dom';
 import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import { Form } from '../helpers/helper';
+import { Link } from 'react-router-dom';
+
 
 export class loginComponent extends Component {
   state ={
@@ -19,14 +21,11 @@ export class loginComponent extends Component {
       }
    }
 
-
   handleLogin = (e) => {
     e.preventDefault();
     const {loginUser} = this.props
     loginUser(this.state)
-
   };
-
 
   onChange = (e) =>{
     this.setState({[e.target.name]: e.target.value});
@@ -47,7 +46,6 @@ export class loginComponent extends Component {
       ]
     return (
       <div>
-
         <form onSubmit={this.handleLogin}>
                     <h2 className="text-center form-signin-heading">
                     Log in to your account

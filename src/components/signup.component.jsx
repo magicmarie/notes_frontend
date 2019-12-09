@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { toast } from 'react-toastify';
+
 import { Form } from "../helpers/helper";
 import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify';
 
 export class signupComponent extends Component {
   state ={
@@ -18,7 +19,6 @@ export class signupComponent extends Component {
      }
    }
 
-
   handleLogin = (e) => {
     e.preventDefault();
     const {signupUser} = this.props
@@ -27,8 +27,6 @@ export class signupComponent extends Component {
       signupUser(this.state)
     }
   };
-
-
 
   onChange = (e) =>{
     this.setState({[e.target.name]: e.target.value});
@@ -59,7 +57,6 @@ export class signupComponent extends Component {
       ]
     return (
       <div>
-
         <form onSubmit={this.handleLogin}>
                     <h2 className="text-center form-signin-heading">
                     Log in to your account

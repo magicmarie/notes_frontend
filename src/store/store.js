@@ -6,7 +6,6 @@ import  { composeWithDevTools } from 'redux-devtools-extension';
 
 import initialState from "../reducers/initialState"
 
-
 const middleware = [thunk, promise];
 
 export default createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));

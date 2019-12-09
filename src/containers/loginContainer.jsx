@@ -9,4 +9,5 @@ const mapStateToProps = ({ logIn }) => {
         logIn
     }
 };
+
 export default connect(mapStateToProps, { loginUser })(loginComponent);
