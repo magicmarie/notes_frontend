@@ -1,4 +1,6 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/1d88826da6caa92c4657/maintainability)](https://codeclimate.com/github/magicmarie/notes_frontend/maintainability)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1d88826da6caa92c4657/test_coverage)](https://codeclimate.com/github/magicmarie/notes_frontend/test_coverage)
 ## Notes App Frontend
 
 

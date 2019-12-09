@@ -1,3 +1,5 @@
+@import './variables.scss'; 
+
 .App {
   text-align: center;
 }
@@ -18,5 +20,9 @@
 }
 
 .App-link {
+  color: #09d3ac;
+}
+
+.blue {
   color: #09d3ac;
 }
