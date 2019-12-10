@@ -1,7 +1,7 @@
 import initialState from './initialState';
-import { userConstants } from '../constants/user.constants';
+import Constants from '../constants/constants';
 
-const { LOGIN } = userConstants
+const { LOGIN } = Constants
 
 export const logIn = (state = initialState.logIn, action) => {
     const { type, payload = {} } = action;

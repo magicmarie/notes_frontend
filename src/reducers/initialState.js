@@ -9,5 +9,11 @@ export default {
       success: false,
       rejected: false,
       token:''
+  },
+   schools: {
+    loading: false,
+    success: false,
+    rejected: false,
+    schools_list:[] 
   }
 } 

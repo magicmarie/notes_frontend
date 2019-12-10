@@ -9,6 +9,7 @@ import { PrivateRoute } from '../src/components/privateRoute';
 import { HomePage } from '../src/components/homePage';
 import loginContainer from '../src/containers/loginContainer';
 import signupContainer from '../src/containers/signupContainer';
+import schoolsContainer from '../src/containers/shoolsContainer'
 import './App.scss';
 
 
@@ -26,6 +27,7 @@ export class App extends Component {
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/signup" component={signupContainer} />
                                 <Route path="/login" component={loginContainer} />
+                                <Route path="/schools" component={schoolsContainer} />
                             </div>
                         </Router>
                     </div>

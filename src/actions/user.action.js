@@ -1,7 +1,7 @@
 import api from "./api";
-import { userConstants } from "../constants/user.constants";
+import Constants  from "../constants/constants";
 
-const { SIGNUP, LOGIN } = userConstants;
+const { SIGNUP, LOGIN } = Constants;
 
 export const signupUser = data => ({
   type: SIGNUP,

@@ -59,7 +59,7 @@ export class signupComponent extends Component {
       <div>
         <form onSubmit={this.handleLogin}>
                     <h2 className="text-center form-signin-heading">
-                    Log in to your account
+                    Sign Up
                     </h2>
                     <Form formFields={formFields} onChange={this.onChange} />
                     <div>
