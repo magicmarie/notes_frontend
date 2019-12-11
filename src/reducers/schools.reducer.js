@@ -1,32 +1,35 @@
-import  Constants  from '../constants/constants';
+import Constants from '../constants/constants';
 import initialState from './initialState'
 
-const { SIGNUP } = Constants
+const { SCHOOLS } = Constants
 
 
-export const signUp = (state = initialState.signUp, action) => {
-    const { type } = action;
+const schools = (state = initialState.schools, action) => {
+    const { type,payload } = action;
     switch (type) {
-        case `${SIGNUP}_PENDING`:
+        case `${SCHOOLS}_PENDING`:
             return {
                 ...state,
                 loading: true,
                 success: false,
             };
-        case `${SIGNUP}_REJECTED`:
+        case `${SCHOOLS}_REJECTED`:
             return {
                 ...state,
                 loading: true,
                 success: false,
             };
-        case `${SIGNUP}_FULFILLED`:
+        case `${SCHOOLS}_FULFILLED`:
             return {
                 ...state,
                 loading: false,
                 success: true,
+                schools_list: payload.data
             };
         default:
             return state
     }
 }
+
+export default schools
 

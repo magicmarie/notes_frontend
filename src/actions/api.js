@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
   baseURL: Config.BASE_URL,
   headers: { 
     'Content-Type': 'application/json',
-    token: `${localStorage.getItem("token")}` }
+    Authorization: `${localStorage.getItem("token")}` }
 });
 
 export default ({ method, url, data }) => axiosInstance({
