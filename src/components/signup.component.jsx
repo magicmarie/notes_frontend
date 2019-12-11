@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
 import { Form } from "../helpers/helper";
-import { Link } from 'react-router-dom'
 
 export class signupComponent extends Component {
   state ={
@@ -19,7 +19,7 @@ export class signupComponent extends Component {
      }
    }
 
-  handleLogin = (e) => {
+  handleSignup = (e) => {
     e.preventDefault();
     const {signupUser} = this.props
     if (this.state.password === this.state.password_confirmation){
@@ -56,26 +56,26 @@ export class signupComponent extends Component {
         }
       ]
     return (
-      <div>
-        <form onSubmit={this.handleLogin}>
-                    <h2 className="text-center form-signin-heading">
-                    Sign Up
-                    </h2>
-                    <Form formFields={formFields} onChange={this.onChange} />
-                    <div>
-                    <button type="submit" className="btn btn-primary btn-block">
-                        Sign Up
-                    </button>
-                    </div>
-                    <p />
-                    <p className="text-center">
-                    Already have an account
-                    <Link href="/login" to="login">
-                        {" "}
-                        Login
-                    </Link>
-                    </p>
-                </form>
+      <div className="height">
+        <form onSubmit={this.handleSignup}>
+          <h2 className="text-center form-signin-heading">
+          Create new account
+          </h2>
+          <Form formFields={formFields} onChange={this.onChange} />
+          <div>
+          <button type="submit" className="btn btn-primary btn-block">
+              Sign Up
+          </button>
+          </div>
+          <p />
+          <p className="text-center">
+          Already have an account?
+          <Link href="/login" to="login">
+              {" "}
+              Login
+          </Link>
+          </p>
+        </form>
       </div>
     )
   }

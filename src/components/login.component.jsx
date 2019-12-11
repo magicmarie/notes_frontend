@@ -50,7 +50,7 @@ export class loginComponent extends Component {
       <div>
         <form onSubmit={this.handleLogin}>
                     <h2 className="text-center form-signin-heading">
-                    Log In
+                    Login
                     </h2>
                     <Form formFields={formFields} onChange={this.onChange} />
                     <div>

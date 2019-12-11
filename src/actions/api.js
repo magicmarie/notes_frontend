@@ -10,14 +10,6 @@ const axiosInstance = axios.create({
     Authorization: `${localStorage.getItem("token")}` }
 });
 
-// axiosInstance.interceptors.request.use(config => {
-//   // if token exists in localstorage but headers.token is empty, add the the token to it
-//   if (localStorage.getItem("token") && config.headers.token === "null") {
-//     config.headers.token = `${localStorage.getItem("token")}`;
-//   }
-//   return config;
-// });
-
 export default ({ method, url, data }) => axiosInstance({
   url,
   method,
