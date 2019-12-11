@@ -6,6 +6,7 @@ const Constants = {
     LOGOUT: 'LOGOUT',
 
     SCHOOLS: 'SCHOOLS',
+    CREATESCHOOL: "CREATESCHOOL",
 };
 
 export default Constants

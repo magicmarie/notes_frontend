@@ -10,6 +10,7 @@ import { HomePage } from '../src/components/homePage';
 import loginContainer from '../src/containers/loginContainer';
 import signupContainer from '../src/containers/signupContainer';
 import schoolsContainer from '../src/containers/shoolsContainer'
+import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 
 

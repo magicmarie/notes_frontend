@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 import { Form } from '../helpers/helper';
 import { Link } from 'react-router-dom';
@@ -14,11 +14,13 @@ export class loginComponent extends Component {
   }
 
    componentDidUpdate = (prevProps, prevState) => {
-       const {logIn} =  this.props
+       const {logIn, history} =  this.props
     if (logIn.success){
         toast("Succesfully logged in");
         localStorage.setItem("token",logIn.token)
+        history.push('/schools')
       }
+
    }
 
   handleLogin = (e) => {

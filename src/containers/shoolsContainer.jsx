@@ -2,12 +2,14 @@ import { connect } from 'react-redux';
 
 import schoolsComponent from '../components/schools.component';
 import  getSchools  from '../actions/schools.actions';
+import createSchool from '../actions/createschool.action';
 
 
-const mapStateToProps = ({ schools }) => {
+const mapStateToProps = ({ schools, createschool }) => {
     return {
-        schools
+        schools,
+        createschool
     }
 };
 
-export default connect(mapStateToProps, {getSchools})(schoolsComponent);
+export default connect(mapStateToProps, {getSchools, createSchool})(schoolsComponent);
