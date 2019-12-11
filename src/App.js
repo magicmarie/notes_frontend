@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import store  from './store/store';
 import { history } from '../src/helpers/history';
-import { PrivateRoute } from '../src/components/privateRoute';
-import { HomePage } from '../src/components/homePage';
 import loginContainer from '../src/containers/loginContainer';
 import signupContainer from '../src/containers/signupContainer';
 import './App.scss';
@@ -23,7 +21,6 @@ export class App extends Component {
                     <div className="col-sm-8 col-sm-offset-2">
                         <Router history={history}>
                             <div>
-                                <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/signup" component={signupContainer} />
                                 <Route path="/login" component={loginContainer} />
                             </div>

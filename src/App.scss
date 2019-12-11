@@ -1,5 +1,9 @@
 @import './variables.scss'; 
 
+html, body {
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -23,6 +27,6 @@
   color: #09d3ac;
 }
 
-.blue {
-  color: #09d3ac;
+.height {
+  height: 100%;
 }
