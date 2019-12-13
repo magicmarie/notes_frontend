@@ -26,7 +26,7 @@ class schoolsComponent extends Component {
 
     }
     componentDidUpdate = () => {
-        const { createschool, schools } = this.props;
+        const { createschool, schools, createstream } = this.props;
         const { schools_list, errorHandled } = this.state
         if (schools.success && schools_list !== schools.schools_list) {
             this.setState({ schools_list: schools.schools_list })
@@ -40,6 +40,21 @@ class schoolsComponent extends Component {
         else if (createschool.rejected && !errorHandled) {
             toast.error(createschool.error)
             this.setState({ errorHandled: true })
+        }
+        if (createstream.success && !schools_list.includes(createstream.created_stream )){
+            console.log("stream added")
+            console.log(this.state )
+            console.log('hello')
+            console.log(createstream)
+            var x;
+            for(x in schools_list){
+                console.log(schools_list[x]);
+                if (schools_list[x].id === createstream.created_stream.id && schools_list[x] !== createstream.created_stream ){
+                    schools_list[x] =createstream.created_stream
+                    this.setState({schools_list})
+
+                }
+            }
         }
 
     }
@@ -61,13 +76,11 @@ class schoolsComponent extends Component {
 
     }
 
-    handleStreamSubmit = e => {
+    handleStreamSubmit =(e, id)=> {
         e.preventDefault();
-        // const { createSchool, createschool } = this.props;
-        // const { school_name } = this.state;
-        // createSchool({ name: school_name });
-        // this.setState({ errorHandled: false });
-        console.log(e.target.school_id.value)
+        const {createStream } = this.props
+        createStream(id, {name: this.state.stream_name})
+        this.setState({[`modal${id}`]: !this.state[`modal${id}`]})
 
     }
 
@@ -115,12 +128,12 @@ class schoolsComponent extends Component {
                                                                 </li>
 
                                                         )}
-                                                        <Button onClick={this.handleStreamModal} key={`btn ${school.id}`}>
+                                                        <Button onClick={() => this.setState({[`modal${school.id}`]:!this.state[`modal${school.id}`]})} key={`btn ${school.id}`}>
                                                             <FontAwesomeIcon icon={faPlus} />
                                                         </Button>
-                                                        <Modal open={openStreamModal} onClose={this.onCloseStreamModal} center>
+                                                        <Modal open={this.state[`modal${school.id}`]} onClose={() => this.setState({[`modal${school.id}`]:false})}center>
                                                             <div>
-                                                                <form onSubmit={this.handleStreamSubmit}>
+                                                                <form onSubmit={(e) => this.handleStreamSubmit(e, school.id)}>
                                                                     <div className="form-group">
                                                                         <label htmlFor="stream_name">Stream Name</label>
                                                                         <input
@@ -139,20 +152,7 @@ class schoolsComponent extends Component {
                                                                             className="form-control"
                                                                         />
                                                                     </div>
-                                                                    {/* <Form formFields={[{
-                                                                        type: "text",
-                                                                        name: "stream_name",
-                                                                        label: "Stream Name"
-                                                                    },
-                                                                    {
-                                                                        type: 'text',
-                                                                        name: 'school_id',
-                                                                        value: `${school.id}`,
-                                                                        hidden: 'hidden'
-                                                                    }
-
-                                                                    ]} onChange={this.onChange} /> */}
-                                                                    <button type="submit" className="btn btn-primary btn-block">
+                                                                    <button type="submit" className="btn btn-primary btn-block" >
                                                                         Add Stream to {school.name}
                                                                     </button>
                                                                 </form>
