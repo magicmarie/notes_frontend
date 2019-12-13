@@ -21,5 +21,12 @@ export default {
     success: false,
     rejected: false,
     created_school:''
+  },
+  createstream: {
+    loading: false,
+    success: false,
+    rejected: false,
+    created_stream:''
+
   }
 } 

@@ -7,6 +7,8 @@ const Constants = {
 
     SCHOOLS: 'SCHOOLS',
     CREATESCHOOL: "CREATESCHOOL",
+    CREATESTREAM: 'CREATESTREAM',
+    
 };
 
 export default Constants
